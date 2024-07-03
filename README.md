@@ -1,81 +1,88 @@
-# Express.js + Prisma + MongoDB Starter Template
+# Node.js MongoDB – User Authentication & Authorization example with JWT & Mongoose
 
-This is a template for a simple To Do List web app that consists of a REST API and a simple front end UI.
+## User Registration, User Login and Authorization process.
+The diagram shows flow of how we implement User Registration, User Login and Authorization process.
 
-<p align="center"><img src="screenshot.png" width="90%" /></p>
+![jwt-token-authentication-node-js-example-flow](jwt-token-authentication-node-js-example-flow.png)
 
-The app uses [Express.js](https://expressjs.com) as the foundation for serving both the REST API back end and the front end.
-[Prisma](https://prisma.io) is used as the ORM to define the data model and interface to the [MongoDB](https://mongodb.com) database.
+For more detail, please visit:
+> [Node.js + MongoDB: User Authentication & Authorization with JWT](https://bezkoder.com/node-js-mongodb-auth-jwt/)
 
-## Using this Starter Template
+You may need to implement Refresh Token:
 
-This repo can be used as an [Adaptable.io](https://adaptable.io) Starter.
-For instructions on using this repo as a template and deploying to the Adaptable Cloud in just a few clicks, check out the [Starter Guide](https://adaptable.io/docs/starters/express-prisma-mongo-starter).
+![jwt-refresh-token-node-js-example-flow](jwt-refresh-token-node-js-example-flow.png)
 
-## Running a local dev environment
+> [Node.js JWT Refresh Token with MongoDB example](https://bezkoder.com/jwt-refresh-token-node-js-mongodb/)
 
-All of the following instructions assume you are in the repo root directory.
+Working with Front-end:
+> [Vue.js JWT Authentication with Vuex and Vue Router](https://bezkoder.com/jwt-vue-vuex-authentication/)
 
-### 1. Install Node.js modules
+> [Angular 8 JWT Authentication example](https://bezkoder.com/angular-jwt-authentication/)
 
-```console
-yarn
+> [Angular 10 JWT Authentication example](https://bezkoder.com/angular-10-jwt-auth/)
+
+> [Angular 11 JWT Authentication example](https://bezkoder.com/angular-11-jwt-auth/)
+
+> [React JWT Authentication & Authorization (without Redux) example](https://bezkoder.com/react-jwt-auth/)
+
+> [React Redux JWT Authentication & Authorization example](https://bezkoder.com/react-redux-jwt-auth/)
+
+## More Practice:
+> [Node.js, Express & MongoDb: Build a CRUD Rest Api example](https://bezkoder.com/node-express-mongodb-crud-rest-api/)
+
+> [Server side Pagination in Node.js with MongoDB and Mongoose](https://bezkoder.com/node-js-mongodb-pagination/)
+
+Associations:
+> [MongoDB One-to-One relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-one-relationship-example/)
+
+> [MongoDB One-to-Many Relationship tutorial with Mongoose examples](https://bezkoder.com/mongoose-one-to-many-relationship/)
+
+> [MongoDB Many-to-Many Relationship with Mongoose examples](https://bezkoder.com/mongodb-many-to-many-mongoose/)
+
+Fullstack:
+> [Vue.js + Node.js + Express + MySQL example](https://bezkoder.com/vue-js-node-js-express-mysql-crud-example/)
+
+> [Vue.js + Node.js + Express + PostgreSQL example](https://bezkoder.com/vue-node-express-postgresql/)
+
+> [Vue.js + Node.js + Express + MongoDB example](https://bezkoder.com/vue-node-express-mongodb-mevn-crud/)
+
+> [Angular 8 + Node.js + Express + MySQL example](https://bezkoder.com/angular-node-express-mysql/)
+
+> [Angular 8 + Node.js + Express + PostgreSQL example](https://bezkoder.com/angular-node-express-postgresql/)
+
+> [Angular 8 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-mongodb-node-express/)
+
+> [Angular 10 + Node.js + Express + MySQL example](https://bezkoder.com/angular-10-node-js-express-mysql/)
+
+> [Angular 10 + Node.js + Express + PostgreSQL example](https://bezkoder.com/angular-10-node-express-postgresql/)
+
+> [Angular 10 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-10-mongodb-node-express/)
+
+> [Angular 11 + Node.js Express + MySQL example](https://bezkoder.com/angular-11-node-js-express-mysql/)
+
+> [Angular 11 + Node.js + Express + PostgreSQL example](https://bezkoder.com/angular-11-node-js-express-postgresql/)
+
+> [Angular 11 + Node.js + Express + MongoDB example](https://bezkoder.com/angular-11-mongodb-node-js-express/)
+
+> [React + Node.js + Express + MySQL example](https://bezkoder.com/react-node-express-mysql/)
+
+> [React + Node.js + Express + PostgreSQL example](https://bezkoder.com/react-node-express-postgresql/)
+
+> [React + Node.js + Express + MongoDB example](https://bezkoder.com/react-node-express-mongodb-mern-stack/)
+
+Integration on same Server/Port:
+> [Integrate Angular 8 with Node.js Express](https://bezkoder.com/integrate-angular-8-node-js/)
+
+> [Integrate Angular 10 with Node.js Express](https://bezkoder.com/integrate-angular-10-node-js/)
+
+> [Integrate React with Node.js Express](https://bezkoder.com/integrate-react-express-same-server-port/)
+
+## Project setup
+```
+npm install
 ```
 
-### 2. Run MongoDB locally
-
-The app requires a database to store the data for the REST API.
-You can run a MongoDB cluster on your local development system if you have Docker installed.
-
-To run a MongoDB cluster using Docker:
-
-```console
-yarn run mongo-start
+### Run
 ```
-
-To later stop the MongoDB cluster:
-
-> **WARNING**: All data stored in the local cluster will be deleted when the container is stopped.
-> For information on persisting the database data, see [adaptable/mongo-replica-set](https://github.com/adaptable/mongo-replica-set).
-
-```console
-yarn run mongo-stop
+node server.js
 ```
-
-### 3. Set DATABASE_URL
-
-The app uses the environment variable `DATABASE_URL` to connect to your MongoDB instance.
-Use a `.env` file to set `DATABASE_URL` in your local dev environment.
-The included `sample.env` file contains the correct `DATABASE_URL` to connect to the local cluster.
-
-To set `DATABASE_URL` to connect to your local MongoDB cluster running in Docker, copy the `sample.env` file to `.env`:
-
-```console
-cp sample.env .env
-```
-
-### 4. Start the app
-
-```console
-yarn run dev
-```
-
-> **NOTE**: By default, the app listens on port 3000. To use a different port, set the `PORT` environment variable to the desired port number.
-
-### 5. Connect to your app
-
-Use a web browser to connect to [http://localhost:3000](http://localhost:3000)
-
-## Source Code
-
-### REST API (back end)
-
-The Prisma schema (data model) for the REST API can be found in `prisma/schema.prisma`.
-The implementation of the `/todos` REST API endpoint is in `src/routes/todos.js`.
-
-### Web UI (front end)
-
-The layout and static portions of the front end can be found in `src/views/index.hbs`.
-The dynamic part of the front end is in `public/js/client.js`.
-
-<p align="center"><a href="https://adaptable.io"><img src="https://adaptable.io/img/color lockup.svg" height="50px" alt="Adaptable.io" /></a></p>
